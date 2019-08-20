@@ -26,6 +26,15 @@ struct ContactsService {
         makeRequest(url: url, completion: completion)
     }
 
+    func getContact<T: Decodable>(for id: Int, completion: @escaping (Result<T, Error>) -> Void) {
+        guard let url = URL(string: baseUrl + "/contacts/\(id).json") else {
+            completion(.failure(ApplicationError.invalidUrlError))
+            return
+        }
+
+        makeRequest(url: url, completion: completion)
+    }
+
     private func makeRequest<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
         serviceHandler.handleRequest(url) { (response) in
             switch response {

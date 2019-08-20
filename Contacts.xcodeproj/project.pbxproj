@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		150F898A230BFF25002BC7F5 /* JsonCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F8989230BFF25002BC7F5 /* JsonCoder.swift */; };
+		150F898C230C09AF002BC7F5 /* ApplicationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F898B230C09AF002BC7F5 /* ApplicationError.swift */; };
 		15A56161230BA40B0084FBD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A56160230BA40B0084FBD7 /* AppDelegate.swift */; };
 		15A56163230BA40B0084FBD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A56162230BA40B0084FBD7 /* ViewController.swift */; };
 		15A56166230BA40B0084FBD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15A56164230BA40B0084FBD7 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		150F8989230BFF25002BC7F5 /* JsonCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonCoder.swift; sourceTree = "<group>"; };
+		150F898B230C09AF002BC7F5 /* ApplicationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationError.swift; sourceTree = "<group>"; };
 		15A5615D230BA40B0084FBD7 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15A56160230BA40B0084FBD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15A56162230BA40B0084FBD7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				15A56160230BA40B0084FBD7 /* AppDelegate.swift */,
 				15A56189230BAE1E0084FBD7 /* ServiceHandler.swift */,
 				150F8989230BFF25002BC7F5 /* JsonCoder.swift */,
+				150F898B230C09AF002BC7F5 /* ApplicationError.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				150F898A230BFF25002BC7F5 /* JsonCoder.swift in Sources */,
 				15A56161230BA40B0084FBD7 /* AppDelegate.swift in Sources */,
 				15A5618A230BAE1E0084FBD7 /* ServiceHandler.swift in Sources */,
+				150F898C230C09AF002BC7F5 /* ApplicationError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

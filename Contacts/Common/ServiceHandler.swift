@@ -18,7 +18,7 @@ struct ServiceHandler {
             } else if let error = error {
                 completion(.failure(error))
             }
-//            completion(.failure(Error())
+            completion(.failure(ApplicationError.networkError))
         }
     }
 }
