@@ -13,6 +13,11 @@
 		150F8990230C10B8002BC7F5 /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = 150F898F230C10B8002BC7F5 /* contacts.json */; };
 		150F8992230C255A002BC7F5 /* contact9539.json in Resources */ = {isa = PBXBuildFile; fileRef = 150F8991230C255A002BC7F5 /* contact9539.json */; };
 		150F8994230C2954002BC7F5 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F8993230C2954002BC7F5 /* Contact.swift */; };
+		150F8998230D20CF002BC7F5 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F8996230D20CF002BC7F5 /* ContactTableViewCell.swift */; };
+		150F8999230D20CF002BC7F5 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150F8997230D20CF002BC7F5 /* ContactTableViewCell.xib */; };
+		150F899B230D2444002BC7F5 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F899A230D2444002BC7F5 /* ContactListViewController.swift */; };
+		150F899D230D30F5002BC7F5 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F899C230D30F5002BC7F5 /* ContactListViewModel.swift */; };
+		150F899F230D3108002BC7F5 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F899E230D3108002BC7F5 /* ContactViewModel.swift */; };
 		15A56161230BA40B0084FBD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A56160230BA40B0084FBD7 /* AppDelegate.swift */; };
 		15A56163230BA40B0084FBD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A56162230BA40B0084FBD7 /* ViewController.swift */; };
 		15A56166230BA40B0084FBD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15A56164230BA40B0084FBD7 /* Main.storyboard */; };
@@ -40,6 +45,11 @@
 		150F898F230C10B8002BC7F5 /* contacts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
 		150F8991230C255A002BC7F5 /* contact9539.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = contact9539.json; sourceTree = "<group>"; };
 		150F8993230C2954002BC7F5 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		150F8996230D20CF002BC7F5 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		150F8997230D20CF002BC7F5 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
+		150F899A230D2444002BC7F5 /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		150F899C230D30F5002BC7F5 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
+		150F899E230D3108002BC7F5 /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		15A5615D230BA40B0084FBD7 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15A56160230BA40B0084FBD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15A56162230BA40B0084FBD7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		150F8995230D209D002BC7F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				150F8996230D20CF002BC7F5 /* ContactTableViewCell.swift */,
+				150F8997230D20CF002BC7F5 /* ContactTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		15A56154230BA40B0084FBD7 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +112,7 @@
 		15A5615F230BA40B0084FBD7 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				150F8995230D209D002BC7F5 /* View */,
 				15A5618C230BB6AE0084FBD7 /* Service */,
 				15A5618B230BB6040084FBD7 /* Storyboard */,
 				15A56187230BAD7B0084FBD7 /* ViewController */,
@@ -141,6 +161,8 @@
 		15A56186230BAD710084FBD7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				150F899C230D30F5002BC7F5 /* ContactListViewModel.swift */,
+				150F899E230D3108002BC7F5 /* ContactViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -148,6 +170,7 @@
 		15A56187230BAD7B0084FBD7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				150F899A230D2444002BC7F5 /* ContactListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -249,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150F8999230D20CF002BC7F5 /* ContactTableViewCell.xib in Resources */,
 				15A5616B230BA40C0084FBD7 /* LaunchScreen.storyboard in Resources */,
 				15A56168230BA40C0084FBD7 /* Assets.xcassets in Resources */,
 				15A56166230BA40B0084FBD7 /* Main.storyboard in Resources */,
@@ -272,9 +296,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				15A5618E230BB6C90084FBD7 /* ContactsService.swift in Sources */,
+				150F899F230D3108002BC7F5 /* ContactViewModel.swift in Sources */,
 				15A56163230BA40B0084FBD7 /* ViewController.swift in Sources */,
+				150F899B230D2444002BC7F5 /* ContactListViewController.swift in Sources */,
 				150F898A230BFF25002BC7F5 /* JsonCoder.swift in Sources */,
 				15A56161230BA40B0084FBD7 /* AppDelegate.swift in Sources */,
+				150F899D230D30F5002BC7F5 /* ContactListViewModel.swift in Sources */,
+				150F8998230D20CF002BC7F5 /* ContactTableViewCell.swift in Sources */,
 				150F8994230C2954002BC7F5 /* Contact.swift in Sources */,
 				15A5618A230BAE1E0084FBD7 /* ServiceHandler.swift in Sources */,
 				150F898C230C09AF002BC7F5 /* ApplicationError.swift in Sources */,
