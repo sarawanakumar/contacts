@@ -54,7 +54,7 @@ class ContactListViewController: UIViewController {
 
 }
 
-extension ContactListViewController: UITableViewDataSource, UITabBarDelegate {
+extension ContactListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.contactSection.count
     }
@@ -87,5 +87,11 @@ extension ContactListViewController: UITableViewDataSource, UITabBarDelegate {
 
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return viewModel.contactSection.compactMap { $0.sectionName }
+    }
+}
+
+extension ContactListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
     }
 }
