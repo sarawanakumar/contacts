@@ -1,3 +1,5 @@
+typealias Contacts = [Contact]
+
 struct Contact: Codable {
     let id: Int
     let firstName, lastName, profilePic: String
@@ -5,6 +7,15 @@ struct Contact: Codable {
     let url: String?
     let phoneNumber: String?
     let email: String?
+
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
 }
 
-typealias Contacts = [Contact]
+extension Contact: Comparable {
+    static func < (lhs: Contact, rhs: Contact) -> Bool {
+        return lhs.fullName < rhs.fullName
+    }
+}
+

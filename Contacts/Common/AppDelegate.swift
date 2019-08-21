@@ -15,7 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let contactsService = ContactsService(ServiceHandler.shared)
+        let viewModel = ContactListViewModel(contactsService: contactsService)
+        let contactListViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? ContactListViewController
+
+        contactListViewController?.viewModel = viewModel
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.rootViewController = contactListViewController
+
         return true
     }
 
