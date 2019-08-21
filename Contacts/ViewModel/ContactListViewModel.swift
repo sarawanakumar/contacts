@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 class ContactListViewModel {
-    private let contactsService: ContactsService
+    private let contactsService: ContactsServiceProtocol
 
     var updateView: (() -> Void)?
     var updateStatus: ((Bool) -> Void)?
@@ -19,7 +19,7 @@ class ContactListViewModel {
         }
     }
 
-    init(contactsService: ContactsService) {
+    init(contactsService: ContactsServiceProtocol) {
         self.contactsService = contactsService
     }
 

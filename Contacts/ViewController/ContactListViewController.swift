@@ -86,6 +86,6 @@ extension ContactListViewController: UITableViewDataSource, UITabBarDelegate {
     }
 
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return viewModel.contactSection.compactMap({ $0.sectionName })
+        return viewModel.contactSection.compactMap { $0.sectionName }
     }
 }
