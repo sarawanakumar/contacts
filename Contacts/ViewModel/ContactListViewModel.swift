@@ -7,7 +7,7 @@ class ContactListViewModel {
     var updateView: (() -> Void)?
     var updateStatus: ((Bool) -> Void)?
 
-    private var contacts = [String: [ContactViewModel]]() {
+    var contactSection = [ContactSection]() {
         didSet {
             updateView?()
         }
@@ -38,18 +38,22 @@ class ContactListViewModel {
     }
 
     private func process(contacts: Contacts) {
-        var contactsDict = [String: [ContactViewModel]]()
+        var contactsArray = [ContactSection]()
         let sortedContacts = contacts.sorted(by: <)
             .map { ContactViewModel(contact: $0) }
 
         UILocalizedIndexedCollation.current()
             .sectionTitles
             .forEach { sectionTitle in
-                contactsDict[sectionTitle.uppercased()] = sortedContacts.filter({
-                        $0.fullName
-                            .hasPrefix(sectionTitle)
-                    })
-                }
-        self.contacts = contactsDict
+                let contactsForSection = sortedContacts.filter({
+                    $0.fullName.hasPrefix(sectionTitle)
+                })
+                let contactSectionItem = ContactSection(
+                    sectionName: sectionTitle.uppercased(),
+                    contacts: contactsForSection
+                )
+                contactsArray.append(contactSectionItem)
+            }
+        self.contactSection = contactsArray
     }
 }

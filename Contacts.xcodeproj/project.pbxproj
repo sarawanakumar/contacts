@@ -26,6 +26,7 @@
 		15A56176230BA40C0084FBD7 /* ContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A56175230BA40C0084FBD7 /* ContactsTests.swift */; };
 		15A5618A230BAE1E0084FBD7 /* ServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A56189230BAE1E0084FBD7 /* ServiceHandler.swift */; };
 		15A5618E230BB6C90084FBD7 /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A5618D230BB6C90084FBD7 /* ContactsService.swift */; };
+		15D0B6D4230D810F0014018E /* ContactSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0B6D3230D810F0014018E /* ContactSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		15A56177230BA40C0084FBD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15A56189230BAE1E0084FBD7 /* ServiceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHandler.swift; sourceTree = "<group>"; };
 		15A5618D230BB6C90084FBD7 /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
+		15D0B6D3230D810F0014018E /* ContactSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				150F899C230D30F5002BC7F5 /* ContactListViewModel.swift */,
 				150F899E230D3108002BC7F5 /* ContactViewModel.swift */,
+				15D0B6D3230D810F0014018E /* ContactSection.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				150F899F230D3108002BC7F5 /* ContactViewModel.swift in Sources */,
 				15A56163230BA40B0084FBD7 /* ViewController.swift in Sources */,
 				150F899B230D2444002BC7F5 /* ContactListViewController.swift in Sources */,
+				15D0B6D4230D810F0014018E /* ContactSection.swift in Sources */,
 				150F898A230BFF25002BC7F5 /* JsonCoder.swift in Sources */,
 				15A56161230BA40B0084FBD7 /* AppDelegate.swift in Sources */,
 				150F899D230D30F5002BC7F5 /* ContactListViewModel.swift in Sources */,

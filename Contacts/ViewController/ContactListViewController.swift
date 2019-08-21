@@ -11,6 +11,11 @@ class ContactListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.register(
+            UINib(nibName: "ContactTableViewCell", bundle: nil),
+            forCellReuseIdentifier: "contactCell"
+        )
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -50,12 +55,37 @@ class ContactListViewController: UIViewController {
 }
 
 extension ContactListViewController: UITableViewDataSource, UITabBarDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.contactSection.count
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.contactSection[section]
+            .contacts
+            .count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "contactCell"
+        ) as? ContactTableViewCell else {
+            return UITableViewCell()
+        }
+
+        cell.viewModel = viewModel.contactSection[indexPath.section]
+                            .contacts[indexPath.row]
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard viewModel.contactSection[section].contacts.count > 0 else {
+            return nil
+        }
+
+        return viewModel.contactSection[section].sectionName
+    }
+
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return viewModel.contactSection.compactMap({ $0.sectionName })
     }
 }
