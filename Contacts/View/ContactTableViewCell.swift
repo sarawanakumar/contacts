@@ -13,6 +13,8 @@ class ContactTableViewCell: UITableViewCell {
 
     func bindData() {
         nameLabel.text = viewModel.fullName
+        favouriteImageView.image = viewModel.favouriteImage
+        profileImageView.loadImageFromCache(url: viewModel.profilePicUrl)
     }
 
     override func awakeFromNib() {
@@ -24,5 +26,11 @@ class ContactTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+
+    override func prepareForReuse() {
+        profileImageView.image = nil
+        favouriteImageView.image = nil
+        nameLabel.text = ""
     }
 }
