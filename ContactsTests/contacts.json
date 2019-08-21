@@ -1,0 +1,34 @@
+[
+    {
+        "id": 9539,
+        "first_name": "Amitabh",
+        "last_name": "sati2",
+        "profile_pic": "/images/missing.png",
+        "favorite": true,
+        "url": "https://gojek-contacts-app.herokuapp.com/contacts/9539.json"
+    },
+    {
+        "id": 9575,
+        "first_name": "Amitabhh",
+        "last_name": "Bachchan",
+        "profile_pic": "/images/missing.png",
+        "favorite": true,
+        "url": "https://gojek-contacts-app.herokuapp.com/contacts/9575.json"
+    },
+    {
+        "id": 9487,
+        "first_name": "Amitabhhh",
+        "last_name": "Bach",
+        "profile_pic": "/images/missing.png",
+        "favorite": true,
+        "url": "https://gojek-contacts-app.herokuapp.com/contacts/9487.json"
+    },
+    {
+        "id": 9461,
+        "first_name": "as",
+        "last_name": "asiiyyy",
+        "profile_pic": "/images/missing.png",
+        "favorite": true,
+        "url": "https://gojek-contacts-app.herokuapp.com/contacts/9461.json"
+    }
+]

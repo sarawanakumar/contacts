@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		150F898A230BFF25002BC7F5 /* JsonCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F8989230BFF25002BC7F5 /* JsonCoder.swift */; };
 		150F898C230C09AF002BC7F5 /* ApplicationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F898B230C09AF002BC7F5 /* ApplicationError.swift */; };
+		150F898E230C0CBA002BC7F5 /* ContactsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F898D230C0CBA002BC7F5 /* ContactsServiceTests.swift */; };
+		150F8990230C10B8002BC7F5 /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = 150F898F230C10B8002BC7F5 /* contacts.json */; };
+		150F8992230C255A002BC7F5 /* contact9539.json in Resources */ = {isa = PBXBuildFile; fileRef = 150F8991230C255A002BC7F5 /* contact9539.json */; };
+		150F8994230C2954002BC7F5 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F8993230C2954002BC7F5 /* Contact.swift */; };
 		15A56161230BA40B0084FBD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A56160230BA40B0084FBD7 /* AppDelegate.swift */; };
 		15A56163230BA40B0084FBD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A56162230BA40B0084FBD7 /* ViewController.swift */; };
 		15A56166230BA40B0084FBD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15A56164230BA40B0084FBD7 /* Main.storyboard */; };
@@ -32,6 +36,10 @@
 /* Begin PBXFileReference section */
 		150F8989230BFF25002BC7F5 /* JsonCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonCoder.swift; sourceTree = "<group>"; };
 		150F898B230C09AF002BC7F5 /* ApplicationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationError.swift; sourceTree = "<group>"; };
+		150F898D230C0CBA002BC7F5 /* ContactsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsServiceTests.swift; sourceTree = "<group>"; };
+		150F898F230C10B8002BC7F5 /* contacts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
+		150F8991230C255A002BC7F5 /* contact9539.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = contact9539.json; sourceTree = "<group>"; };
+		150F8993230C2954002BC7F5 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		15A5615D230BA40B0084FBD7 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15A56160230BA40B0084FBD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15A56162230BA40B0084FBD7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +110,9 @@
 			children = (
 				15A56175230BA40C0084FBD7 /* ContactsTests.swift */,
 				15A56177230BA40C0084FBD7 /* Info.plist */,
+				150F898D230C0CBA002BC7F5 /* ContactsServiceTests.swift */,
+				150F898F230C10B8002BC7F5 /* contacts.json */,
+				150F8991230C255A002BC7F5 /* contact9539.json */,
 			);
 			path = ContactsTests;
 			sourceTree = "<group>";
@@ -122,6 +133,7 @@
 		15A56185230BAD6A0084FBD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				150F8993230C2954002BC7F5 /* Contact.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +259,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150F8992230C255A002BC7F5 /* contact9539.json in Resources */,
+				150F8990230C10B8002BC7F5 /* contacts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +275,7 @@
 				15A56163230BA40B0084FBD7 /* ViewController.swift in Sources */,
 				150F898A230BFF25002BC7F5 /* JsonCoder.swift in Sources */,
 				15A56161230BA40B0084FBD7 /* AppDelegate.swift in Sources */,
+				150F8994230C2954002BC7F5 /* Contact.swift in Sources */,
 				15A5618A230BAE1E0084FBD7 /* ServiceHandler.swift in Sources */,
 				150F898C230C09AF002BC7F5 /* ApplicationError.swift in Sources */,
 			);
@@ -270,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150F898E230C0CBA002BC7F5 /* ContactsServiceTests.swift in Sources */,
 				15A56176230BA40C0084FBD7 /* ContactsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,10 +11,10 @@ import Foundation
 let baseUrl = "https://gojek-contacts-app.herokuapp.com"
 
 struct ContactsService {
-    let serviceHandler: ServiceHandler
+    let serviceHandler: ServiceHandlerProtocol
     let jsonCoder = JsonCoder()
 
-    init(_ serviceHandler: ServiceHandler) {
+    init(_ serviceHandler: ServiceHandlerProtocol) {
        self.serviceHandler = serviceHandler
     }
 
@@ -36,7 +36,7 @@ struct ContactsService {
     }
 
     private func makeRequest<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
-        serviceHandler.handleRequest(url) { (response) in
+        serviceHandler.handleRequest(url: url) { (response) in
             switch response {
             case .success(let data):
                 self.parseData(data: data, completion: completion)
