@@ -21,7 +21,9 @@ extension UIImageView {
             guard let data = data,
                 let image = UIImage(data: data),
                 error == nil else {
-                self.image = nil
+                    DispatchQueue.main.async {
+                        self.image = nil
+                    }
                 return
             }
 

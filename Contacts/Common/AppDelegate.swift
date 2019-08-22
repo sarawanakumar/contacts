@@ -16,14 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let contactsService = ContactsService(ServiceHandler.shared)
-        let viewModel = ContactListViewModel(contactsService: contactsService)
-        let contactListViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? ContactListViewController
+        let rootNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? UINavigationController
+        let contactListViewController = rootNavigationController?.visibleViewController as? ContactListViewController
 
-        contactListViewController?.viewModel = viewModel
+        contactListViewController?.contactsService = contactsService
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: contactListViewController ?? UIViewController())
+        window?.rootViewController = rootNavigationController
 
         return true
     }

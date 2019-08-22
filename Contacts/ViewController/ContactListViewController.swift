@@ -3,8 +3,11 @@ import UIKit
 class ContactListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
-    var viewModel: ContactListViewModel! {
+    private var viewModel: ContactListViewModel!
+
+    var contactsService: ContactsService! {
         didSet {
+            viewModel = ContactListViewModel(contactsService: contactsService)
             initializeClosures()
         }
     }
@@ -93,5 +96,16 @@ extension ContactListViewController: UITableViewDataSource {
 extension ContactListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 64
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "contactDetail") as? ContactDetailViewController else { return }
+
+        let contactId = viewModel.contactSection[indexPath.section].contacts[indexPath.row].id
+
+        detailViewController.contactId = contactId
+        detailViewController.contactsService = contactsService
+
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
