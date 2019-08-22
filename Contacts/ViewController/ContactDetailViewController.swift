@@ -4,11 +4,15 @@ class ContactDetailViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var detailContainerView: UIView!
+    @IBOutlet weak var itemTableView: UITableView!
 
     var contactId: Int!
     var contactsService: ContactsService!
+    var inEditMode = false
 
-    var contactViewModel: ContactViewModel! {
+    private var tableData = [ContactItemViewModel]()
+
+    private var contactViewModel: ContactViewModel! {
         didSet {
             DispatchQueue.main.async {
                 self.bindViewWithData()
@@ -39,12 +43,15 @@ class ContactDetailViewController: UIViewController {
     private func bindViewWithData() {
         profileImageView.loadImageFromCache(url: contactViewModel.profilePicUrl)
         fullNameLabel.text = contactViewModel.fullName
+
+        updateContactItemTable()
     }
 
     private func setupView() {
         setGradientToTopContainer()
         setRightBarButtonItem()
         setupProfileImageView()
+        itemTableView.tableFooterView = UIView()
     }
 
     private func setGradientToTopContainer() {
@@ -71,5 +78,35 @@ class ContactDetailViewController: UIViewController {
     private func setupProfileImageView() {
         profileImageView.layer.borderWidth = 3.0
         profileImageView.layer.borderColor = UIColor.white.cgColor
+    }
+
+    private func updateContactItemTable() {
+        if let mobile = contactViewModel.mobile {
+            tableData.append(ContactItemViewModel(name: "mobile", value: mobile, editable: inEditMode))
+        }
+
+        if let email = contactViewModel.email {
+            tableData.append(ContactItemViewModel(name: "email", value: email, editable: inEditMode))
+        }
+
+        itemTableView.reloadData()
+    }
+}
+
+extension ContactDetailViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableData.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "contactEntryCell") as? ContactItemTableViewCell else { return UITableViewCell() }
+
+        cell.contactItemViewModel = tableData[indexPath.row]
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
     }
 }
