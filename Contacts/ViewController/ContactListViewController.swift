@@ -2,6 +2,7 @@ import UIKit
 
 class ContactListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     private var viewModel: ContactListViewModel!
 
@@ -37,8 +38,10 @@ class ContactListViewController: UIViewController {
         viewModel.updateStatus = { [weak self] loading in
             DispatchQueue.main.async {
                 if loading {
+                    self?.activityIndicator.startAnimating()
                     self?.tableView.alpha = 0
                 } else {
+                    self?.activityIndicator.startAnimating()
                     self?.tableView.alpha = 1
                 }
             }
