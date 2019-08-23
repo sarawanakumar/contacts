@@ -10,13 +10,22 @@ class ContactDetailViewController: UIViewController {
     @IBOutlet weak var customNavBar: UINavigationBar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    var contactId: Int!
-    var contactsService: ContactsService!
+    var contactsService: ContactsService?
     var inEditMode = false
+    var id = 0
 
     private var tableData = [ContactItemViewModel]()
 
-    private var contactViewModel: ContactViewModel! {
+    var contactId: Int? {
+        get {
+            return id
+        }
+        set {
+            id = newValue ?? 0
+        }
+    }
+
+    private var contactViewModel: ContactViewModel? {
         didSet {
             DispatchQueue.main.async {
                 if !self.inEditMode {
@@ -32,7 +41,7 @@ class ContactDetailViewController: UIViewController {
         if !inEditMode {
             activityIndicator.startAnimating()
             detailContainerView.alpha = 0
-            contactsService.getContact(for: contactId) { [weak self] (result: Result<Contact, Error>) in
+            contactsService?.getContact(for: id) { [weak self] (result: Result<Contact, Error>) in
                 DispatchQueue.main.async {
                     self?.activityIndicator.stopAnimating()
                     self?.detailContainerView.alpha = 1
@@ -75,8 +84,10 @@ class ContactDetailViewController: UIViewController {
 
     //Private Methods
     private func bindViewWithData() {
-        profileImageView.loadImageFromCache(url: contactViewModel.profilePicUrl)
-        fullNameLabel.text = contactViewModel.fullName
+        if let url = contactViewModel?.profilePicUrl {
+            profileImageView.loadImageFromCache(url: url)
+        }
+        fullNameLabel.text = contactViewModel?.fullName
 
         updateContactItemTable()
     }
@@ -133,15 +144,17 @@ class ContactDetailViewController: UIViewController {
     }
 
     private func updateContactItemTable() {
+        guard let viewModel = contactViewModel else { return }
+
         tableData.removeAll()
 
         if inEditMode {
-            tableData.append(ContactItemViewModel(name: "First Name", value: contactViewModel.firstName, editable: inEditMode))
-            tableData.append(ContactItemViewModel(name: "Last Name", value: contactViewModel.lastName, editable: inEditMode))
+            tableData.append(ContactItemViewModel(name: "First Name", value: viewModel.firstName, editable: inEditMode))
+            tableData.append(ContactItemViewModel(name: "Last Name", value: viewModel.lastName, editable: inEditMode))
         }
 
-        tableData.append(ContactItemViewModel(name: "Mobile", value: contactViewModel.mobile ?? "", editable: inEditMode))
-        tableData.append(ContactItemViewModel(name: "Email", value: contactViewModel.email ?? "", editable: inEditMode))
+        tableData.append(ContactItemViewModel(name: "Mobile", value: viewModel.mobile ?? "", editable: inEditMode))
+        tableData.append(ContactItemViewModel(name: "Email", value: viewModel.email ?? "", editable: inEditMode))
 
         itemTableView.reloadData()
     }

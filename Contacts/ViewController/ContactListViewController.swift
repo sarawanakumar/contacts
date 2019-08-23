@@ -4,11 +4,13 @@ class ContactListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    private var viewModel: ContactListViewModel!
+    private var viewModel: ContactListViewModel?
 
-    var contactsService: ContactsService! {
+    var contactsService: ContactsService? {
         didSet {
-            viewModel = ContactListViewModel(contactsService: contactsService)
+            guard let service = contactsService else { return }
+            
+            viewModel = ContactListViewModel(contactsService: service)
             initializeClosures()
         }
     }
@@ -25,17 +27,17 @@ class ContactListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        viewModel.fetchContactsList()
+        viewModel?.fetchContactsList()
     }
 
     func initializeClosures() {
-        viewModel.updateView = { [weak self] in
+        viewModel?.updateView = { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
         }
 
-        viewModel.updateStatus = { [weak self] loading in
+        viewModel?.updateStatus = { [weak self] loading in
             DispatchQueue.main.async {
                 if loading {
                     self?.activityIndicator.startAnimating()
@@ -62,13 +64,13 @@ class ContactListViewController: UIViewController {
 
 extension ContactListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.contactSection.count
+        return viewModel?.contactSection.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.contactSection[section]
+        return viewModel?.contactSection[section]
             .contacts
-            .count
+            .count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,13 +80,14 @@ extension ContactListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell.viewModel = viewModel.contactSection[indexPath.section]
+        cell.viewModel = viewModel?.contactSection[indexPath.section]
                             .contacts[indexPath.row]
         return cell
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard viewModel.contactSection[section].contacts.count > 0 else {
+        guard let viewModel = viewModel,
+            viewModel.contactSection[section].contacts.count > 0 else {
             return nil
         }
 
@@ -92,7 +95,7 @@ extension ContactListViewController: UITableViewDataSource {
     }
 
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return viewModel.contactSection.compactMap { $0.sectionName }
+        return viewModel?.contactSection.compactMap { $0.sectionName }
     }
 }
 
@@ -104,7 +107,7 @@ extension ContactListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "contactDetail") as? ContactDetailViewController else { return }
 
-        let contactId = viewModel.contactSection[indexPath.section].contacts[indexPath.row].id
+        let contactId = viewModel?.contactSection[indexPath.section].contacts[indexPath.row].id
 
         detailViewController.contactId = contactId
         detailViewController.contactsService = contactsService

@@ -5,16 +5,19 @@ class ContactTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var favouriteImageView: UIImageView!
     
-    var viewModel: ContactViewModel! {
+    var viewModel: ContactViewModel? {
         didSet {
             bindData()
         }
     }
 
     func bindData() {
-        nameLabel.text = viewModel.fullName
-        favouriteImageView.image = viewModel.favouriteImage
-        profileImageView.loadImageFromCache(url: viewModel.profilePicUrl)
+        nameLabel.text = viewModel?.fullName
+        favouriteImageView.image = viewModel?.favouriteImage
+
+        if let url = viewModel?.profilePicUrl {
+            profileImageView.loadImageFromCache(url: url)
+        }
     }
 
     override func awakeFromNib() {
