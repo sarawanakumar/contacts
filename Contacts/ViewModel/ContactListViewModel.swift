@@ -6,6 +6,7 @@ class ContactListViewModel {
 
     var updateView: (() -> Void)?
     var updateStatus: ((Bool) -> Void)?
+    var updateError: ((String) -> Void)?
 
     var contactSection = [ContactSection]() {
         didSet {
@@ -31,8 +32,8 @@ class ContactListViewModel {
             switch result {
             case .success(let contacts):
                 self?.process(contacts: contacts)
-            case .failure(_):
-                ()
+            case .failure(let err):
+                self?.updateError?(err.localizedDescription)
             }
         }
     }

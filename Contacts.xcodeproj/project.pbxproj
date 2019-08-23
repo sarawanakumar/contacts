@@ -29,6 +29,7 @@
 		15A5618A230BAE1E0084FBD7 /* ServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A56189230BAE1E0084FBD7 /* ServiceHandler.swift */; };
 		15A5618E230BB6C90084FBD7 /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A5618D230BB6C90084FBD7 /* ContactsService.swift */; };
 		15C5DD7F230FF37C003D0C4B /* ContactViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C5DD7E230FF37C003D0C4B /* ContactViewModelTests.swift */; };
+		15C5DD81230FF6D5003D0C4B /* AlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C5DD80230FF6D5003D0C4B /* AlertError.swift */; };
 		15D0B6D4230D810F0014018E /* ContactSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0B6D3230D810F0014018E /* ContactSection.swift */; };
 		15D0B6D6230D9A250014018E /* ContactListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0B6D5230D9A250014018E /* ContactListViewModelTests.swift */; };
 		15D0B6D8230D9D380014018E /* MockContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D0B6D7230D9D380014018E /* MockContactsService.swift */; };
@@ -72,6 +73,7 @@
 		15A56189230BAE1E0084FBD7 /* ServiceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHandler.swift; sourceTree = "<group>"; };
 		15A5618D230BB6C90084FBD7 /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
 		15C5DD7E230FF37C003D0C4B /* ContactViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModelTests.swift; sourceTree = "<group>"; };
+		15C5DD80230FF6D5003D0C4B /* AlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertError.swift; sourceTree = "<group>"; };
 		15D0B6D3230D810F0014018E /* ContactSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactSection.swift; sourceTree = "<group>"; };
 		15D0B6D5230D9A250014018E /* ContactListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModelTests.swift; sourceTree = "<group>"; };
 		15D0B6D7230D9D380014018E /* MockContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockContactsService.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				150F8989230BFF25002BC7F5 /* JsonCoder.swift */,
 				150F898B230C09AF002BC7F5 /* ApplicationError.swift */,
 				15D0B6D9230DA2100014018E /* UIImageView+Extension.swift */,
+				15C5DD80230FF6D5003D0C4B /* AlertError.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				1567B07C230E71A500E2B54B /* ContactDetailViewController.swift in Sources */,
 				150F8998230D20CF002BC7F5 /* ContactTableViewCell.swift in Sources */,
 				150F8994230C2954002BC7F5 /* Contact.swift in Sources */,
+				15C5DD81230FF6D5003D0C4B /* AlertError.swift in Sources */,
 				15A5618A230BAE1E0084FBD7 /* ServiceHandler.swift in Sources */,
 				150F898C230C09AF002BC7F5 /* ApplicationError.swift in Sources */,
 			);

@@ -37,6 +37,16 @@ class ContactListViewController: UIViewController {
             }
         }
 
+        viewModel?.updateError = { [weak self] (message) in
+            DispatchQueue.main.async {
+                let alertController = AlertError(
+                    message: message,
+                    retry: { self?.viewModel?.fetchContactsList() }
+                ).controller
+                self?.present(alertController, animated: true, completion: nil)
+            }
+        }
+
         viewModel?.updateStatus = { [weak self] loading in
             DispatchQueue.main.async {
                 if loading {
