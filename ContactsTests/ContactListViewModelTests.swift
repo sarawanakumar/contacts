@@ -14,18 +14,14 @@ class ContactListViewModelTests: XCTestCase {
     func testShouldVerifyIfViewModelCreatedForGivenServiceResponse() {
         //Arrange
         let service = MockContactsService()
+        let vm = ContactListViewModel(contactsService: service)
 
         //Act
-        service.getContactsList { (result: Result<Contacts, Error>) in
-            //Assert
-            switch result {
-            case .success(let contacts):
-                XCTAssertEqual(contacts.count, 2, "Count Mismatch")
-                XCTAssertEqual(contacts[0].id, 234, "Invalid Contacts")
-                XCTAssertEqual(contacts[1].id, 235, "Invalid Contacts")
-            case .failure:
-                XCTFail("Unable to fetch data")
-            }
-        }
+        vm.fetchContactsList()
+
+        //Assert
+        XCTAssertEqual(vm.contactSection.count, 27, "Count Mismatch")
+        XCTAssertEqual(vm.contactSection[17].sectionName, "R", "Invalid Contacts")
+        XCTAssertEqual(vm.contactSection[17].contacts[0].id, 235, "Invalid Contacts")
     }
 }
